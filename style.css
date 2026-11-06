@@ -1,5 +1,5 @@
 
-:root{--paper:#FFF8F3;--ink:#272522;--muted:#665f59;--faint:#84786f;--rule:#D6D0CB;--wine:#920D35;--teal:#346E73;--serif:"STIX Two Text",Georgia,"Times New Roman",serif;--sans:"Source Sans 3",Arial,sans-serif;--mono:"IBM Plex Mono",monospace}
+:root{--paper:#FFF8F3;--ink:#272522;--muted:#665f59;--faint:#84786f;--rule:#D6D0CB;--wine:#920D35;--teal:#346E73;--serif:Georgia,"Times New Roman",serif;--sans:"Source Sans 3",Arial,sans-serif;--mono:"IBM Plex Mono",monospace}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);margin:0;font:400 17px/1.65 var(--serif);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -105,3 +105,41 @@ figure.concept figcaption{font:400 12px/1.65 var(--sans);color:var(--muted);marg
 
 /* Clearly tiered page titles and section labels */
 .portal-label{padding-bottom:12px;margin-bottom:16px}.card-num{font-weight:600;letter-spacing:.08em}.side-card{border-top-color:var(--rule)}.page-hero{padding-bottom:40px}.page-hero .kicker{font-size:11px}.page-content>.section-block>.minor-label{font-weight:600;color:var(--wine)}
+
+
+/* Typography aligned to the scholarly title-page treatment of the reference.
+   No copied web fonts or proprietary assets: Georgia/Times-like newspaper serif. */
+body{font-family:var(--serif);font-size:17px;line-height:1.63}
+.paper-front{display:block;max-width:950px;padding:68px 0 32px}
+.paper-front .paper-edition{display:block;font:500 11px/1.5 var(--sans);color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:30px}
+.paper-front h1{font-family:var(--serif);font-weight:400;font-size:clamp(69px,8.1vw,104px);line-height:1.055;letter-spacing:-.042em;margin:0 0 25px;color:var(--ink);text-wrap:balance}
+.paper-front h1 .title-stop{color:var(--ink)}
+.paper-front .paper-subtitle{font:italic 400 clamp(20px,2.2vw,25px)/1.45 var(--serif);letter-spacing:0;max-width:790px;margin:0 0 23px;color:var(--ink)}
+.paper-front .paper-author{font:400 18px/1.5 var(--serif);margin:0 0 28px;color:var(--ink)}
+.paper-abstract{max-width:830px;padding-top:17px;border-top:1px solid var(--rule);font:400 16px/1.67 var(--serif);color:var(--ink)}
+.paper-abstract p{margin:0 0 12px}
+.paper-abstract strong{font-weight:700}
+.paper-abstract .paper-keywords{font:400 14px/1.65 var(--serif);margin:0;color:var(--muted)}
+.paper-abstract .paper-keywords em{color:var(--ink)}
+.paper-front+.home-line{margin-top:16px}
+.page-hero{padding-top:68px;padding-bottom:38px}
+.page-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(51px,6.2vw,78px);line-height:1.12;letter-spacing:-.037em;max-width:965px;color:var(--ink);margin:15px 0 21px}
+.page-hero h1 em{font-weight:400;font-style:italic;color:var(--ink)}
+.page-hero>p{font:italic 400 20px/1.5 var(--serif);max-width:810px;color:var(--ink)}
+.page-content h2,.page-content h3,.entry h3,.portal-card strong,.free-page-title{font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
+.page-content h2{font-size:36px;line-height:1.25}
+.portal-card strong{font-weight:400;letter-spacing:-.025em}
+.portal-card:hover,.portal-card:focus-visible{background:#FCF6F1}
+.hero-aside{display:none}
+@media(max-width:760px){
+ .paper-front{padding:43px 0 26px}
+ .paper-front .paper-edition{margin-bottom:22px;font-size:9px}
+ .paper-front h1{font-size:clamp(56px,12vw,78px);line-height:1.08;margin-bottom:19px}
+ .paper-front .paper-subtitle{font-size:19px}
+ .paper-front .paper-author{font-size:16px;margin-bottom:20px}
+ .paper-abstract{font-size:15px;line-height:1.7}
+ .page-hero{padding-top:46px}
+ .page-hero h1{font-size:clamp(44px,9.5vw,60px);line-height:1.14}
+ .page-hero>p{font-size:18px}
+}
+@media(max-width:420px){.paper-front h1{font-size:54px}.paper-front .paper-subtitle{font-size:18px}}
