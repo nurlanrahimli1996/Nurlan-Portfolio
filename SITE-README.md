@@ -1,27 +1,26 @@
-# Nurlan Rahimli · Personal academic and intellectual website
+# Nurlan Rahimli — Academic & Intellectual Website
 
-This is a page-based academic website with scholarly serif typography and the exact background **#FFF1E5**.
+Minimal, page-based academic website with LaTeX-like Latin Modern Roman typography.
 
-## Structure
-- `index.html` — concise landing page with click-through navigation
-- `research/index.html` — dissertation and research agenda
-- `papers/index.html` — working papers and ongoing projects
-- `academic/index.html` — academic engagements
-- `free/index.html` — personal essays, blogs, travel writing and self-reflection, with clickable archive categories
-- `experience/index.html` — separate industry and analytics experience
-- `about/index.html` — biography and education
-- `style.css` — shared design system
-- `script.js` — responsive mobile menu, Free category tabs
-- `favicon.svg` — site icon
+## Design principles
+- Near-white paper background: `#FFFCFA`
+- Latin Modern Roman serif on all pages, with Georgia fallback
+- A centered academic-paper title, italic subtitle, author line, short About paragraph
+- Simple text links rather than cards; separate pages instead of long homepage scrolling
+- Mobile-friendly navigation and readable body typography
 
-## Design
-- Warm Paper `#FFF1E5` everywhere, with no large darker peach panels
-- STIX Two Text headings and prose, Source Sans 3 navigation and brief notes, IBM Plex Mono metadata
-- Scholarly-paper/editorial typography inspired by the *form* of econphdplacements.com, not a copied stylesheet or exact font.
+## Pages
+- `index.html`: home and link directory
+- `research/index.html`: dissertation and research questions
+- `papers/index.html`: working papers and research projects
+- `academic/index.html`: academic activities
+- `free/index.html`: independent essays, blog, travel and reflections (clickable categories)
+- `experience/index.html`: industry background
+- `about/index.html`: short bio and education
 
-## Publish
-This is currently a **staging branch** (`academic-editorial-2026`) within `Nurlan-Portfolio`, not a separate academic repository. The main branch has not been changed.
-To publish an independent academic brand, create a new public repo (e.g., `nurlan-rahimli`); transfer this directory contents to that repository and enable GitHub Pages. A custom domain can remove the account username from the URL.
+The open-source font stylesheet is loaded from `https://lalten.github.io/lmweb/style/latinmodern-roman.css`; see the [LM Webfonts project](https://github.com/lalten/lmweb) for licensing and attribution. No font files are stored in this repository.
 
-## Content notes
-All article archives are empty until the author supplies actual writings. Working research is described conservatively and is not presented as peer-reviewed publication. Contact details are intentionally not invented.
+## Status
+These changes are on a staging branch called `academic-editorial-2026` within `Nurlan-Portfolio`. The existing `main` branch is unchanged. To make the academic site independent, create a separate repository and move these files there, then enable GitHub Pages.
+
+All writing archives are empty until real content is supplied; unpublished research is marked as in progress.
