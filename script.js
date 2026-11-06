@@ -1,7 +1,40 @@
 "use strict";
-const menu=document.querySelector(".menu-button"),nav=document.querySelector(".main-nav");
-menu?.addEventListener("click",()=>{const opened=menu.getAttribute("aria-expanded")==="true";menu.setAttribute("aria-expanded",String(!opened));nav?.classList.toggle("open",!opened)});
-nav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu?.setAttribute("aria-expanded","false")}));
-const toggles=[...document.querySelectorAll("[data-chart-view]")];toggles.forEach(button=>button.addEventListener("click",()=>{const view=button.dataset.chartView;toggles.forEach(b=>{const active=b===button;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active))});document.querySelectorAll("[data-series]").forEach(series=>{const active=view==="both"||series.dataset.series===view;series.style.opacity=active?"1":".08"});document.querySelectorAll("[data-legend]").forEach(legend=>{legend.style.opacity=view==="both"||legend.dataset.legend===view?"1":".35"})}));
+const menu=document.querySelector(".nav-toggle");
+const nav=document.querySelector("#site-nav");
+if(menu&&nav){
+ menu.addEventListener("click",()=>{
+  const willOpen=menu.getAttribute("aria-expanded")!=="true";
+  menu.setAttribute("aria-expanded",String(willOpen));
+  menu.setAttribute("aria-label",willOpen?"Close navigation":"Open navigation");
+  nav.classList.toggle("open",willOpen);
+ });
+ nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+  nav.classList.remove("open");
+  menu.setAttribute("aria-expanded","false");
+  menu.setAttribute("aria-label","Open navigation");
+ }));
+}
+document.querySelectorAll('[role="tablist"]').forEach(list=>{
+ const tabs=Array.from(list.querySelectorAll('[role="tab"][data-tab]'));
+ function activate(selected,focus){
+  tabs.forEach(tab=>{
+   const active=tab===selected;
+   tab.setAttribute("aria-selected",String(active));
+   tab.setAttribute("tabindex",active?"0":"-1");
+   const panel=document.getElementById("panel-"+tab.dataset.tab);
+   if(panel)panel.hidden=!active;
+  });
+  if(focus)selected.focus();
+ }
+ tabs.forEach((tab,index)=>{
+  tab.addEventListener("click",()=>activate(tab,false));
+  tab.addEventListener("keydown",event=>{
+   const move=event.key==="ArrowRight"?1:event.key==="ArrowLeft"?-1:0;
+   if(!move&&event.key!=="Home"&&event.key!=="End")return;
+   event.preventDefault();
+   const target=event.key==="Home"?0:event.key==="End"?tabs.length-1:(index+move+tabs.length)%tabs.length;
+   activate(tabs[target],true);
+  });
+ });
+});
 const year=document.getElementById("year");if(year)year.textContent=String(new Date().getFullYear());
-const academicEmail="";if(academicEmail){const link=document.getElementById("email-link");if(link){link.href="mailto:"+academicEmail;link.textContent=academicEmail+" ↗";link.removeAttribute("aria-disabled");document.querySelector(".contact-hint")?.remove()}}
