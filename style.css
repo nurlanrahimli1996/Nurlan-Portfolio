@@ -99,20 +99,20 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } }
  
 /* Compact academic portrait in the top-left header, on every page. */
-.mastline { min-height: 94px; padding: 10px 0 9px; }
+.mastline { min-height: 164px; padding: 10px 0 9px; }
 .header-identity { display: inline-flex; align-items: center; gap: 16px; color: var(--ink); }
 .header-identity span { font-size: 21px; line-height: 1.15; font-variant: small-caps; letter-spacing: .035em; }
-.header-portrait { display: block; width: 72px; height: 72px; object-fit: cover; border: 1px solid var(--line); border-radius: 2px; }
+.header-portrait { display: block; width: 145px; height: 145px; object-fit: cover; border: 1px solid var(--line); border-radius: 2px; }
 .mastline-location { align-self: flex-start; margin-top: 6px; }
 @media(max-width:740px) {
-  .mastline { min-height: 77px; padding: 8px 0; }
+  .mastline { min-height: 140px; padding: 8px 0; }
   .header-identity { gap: 11px; }
   .header-identity span { font-size: 17px; }
-  .header-portrait { width: 57px; height: 57px; }
+  .header-portrait { width: 125px; height: 125px; }
   .mastline-location { font-size: 13px; }
 }
 @media(max-width:400px) {
   .header-identity span { font-size: 15px; }
-  .header-portrait { width: 52px; height: 52px; }
+  .header-portrait { width: 105px; height: 105px; }
   .mastline-location { font-size: 11px; }
 }
